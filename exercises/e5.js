@@ -23,10 +23,11 @@ export const attachTitle = (arg) => {
 
 export const getPromise = () => {
   // Your code goes here...
-  const promise = new Promise((res) => {
-    res(console.log(attachTitle("MANHATTAN")));
-  });
-  return promise;
+  return new Promise((res) => {
+    res("MANHATTAN");
+  })
+    .then(attachTitle)
+    .then(console.log);
 };
 
 // === TEST YOURSELF ===

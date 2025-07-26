@@ -13,7 +13,7 @@
 export function iterate(arg) {
   // Your code goes here...
   console.log(arg);
-  return (arg += 1);
+  return ++arg;
 }
 
 /**
@@ -63,18 +63,18 @@ export function onReject(arg) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve()
-  .then(iterate(0))
-  .then(iterate(1))
-  .then(iterate(2))
-  .then(iterate(3))
-  .then(iterate(4))
-  .catch(() => onReject(Promise.reject))
-  .then(iterate(5))
-  .then(iterate(6))
-  .then(iterate(7))
-  .then(iterate(8))
-  .then(iterate(9));
+export const promise = Promise.resolve(iterate(1))
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(alwaysThrows)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .catch((err) => onReject(err));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"

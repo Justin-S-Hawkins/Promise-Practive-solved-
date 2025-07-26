@@ -17,12 +17,11 @@
 
 export const getPromise = (bool) => {
   // Your code goes here...
-  const promise = new Promise((res, rej) => {
+  return new Promise((res, rej) => {
     bool === true
       ? res("The PROMISE was RESOLVED")
       : rej("The PROMISE was REJECTED");
   });
-  return promise;
 };
 
 /**
@@ -36,15 +35,10 @@ export const getPromise = (bool) => {
 
 export const handlePromise = (promise) => {
   // Your code goes here...
-  return promise
-    .then((data) => {
-      return data;
-    })
-    .catch(() => {
-      return "Uh Oh";
-    });
+  return promise.then((data) => {
+    return data;
+  });
 };
-
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-2"
 // If the test has all tests passed, switch to the next exercise file

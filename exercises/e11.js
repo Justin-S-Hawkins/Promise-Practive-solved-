@@ -39,7 +39,7 @@ const getLoginList = (data) => {
  */
 
 // Your code goes here ...
-const getData = fetch(usersUrl).then((res) => res.json());
+const getData = fetch(usersUrl);
 
 /**
  * @task
@@ -53,11 +53,13 @@ const getData = fetch(usersUrl).then((res) => res.json());
  */
 
 // Your code goes here ...
-export const result = getData.then((data) => {
-  console.log(getLoginList(data));
-  return getLoginList(data);
-});
-
+export const result = getData
+  .then((res) => res.json())
+  .then((data) => {
+    const logins = getLoginList(data);
+    console.log(logins);
+    return logins;
+  });
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
 // If the test has all tests passed, switch to the next exercise file

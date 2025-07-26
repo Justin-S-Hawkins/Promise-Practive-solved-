@@ -23,9 +23,11 @@ const second = (val) => {
 // Refactor the following code...
 
 export const handlePromise = first()
-  .then((val) => val)
-  .then((sum) => second(sum));
-
+  .then((sum) => second(sum))
+  .then((result) => {
+    console.log(result);
+    return result;
+  });
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-4"
 // If the test has all tests passed, switch to the next exercise file
